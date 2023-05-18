@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# production and tests
+.env
+build
+coverage
+
+# others
+.DS_Store
+.vscode
