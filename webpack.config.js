@@ -13,12 +13,17 @@ const config = (env, argv) => {
         : process.env.BACKEND_URL_DEV
 
     return {
-        entry: './src/index.js',
+        entry: {
+            main: './src/index.js',
+        },
         output: {
             publicPath: production ? './' : '/',
             filename: production
-                ? 'main.[contenthash].js'
-                : 'main.js',
+                ? 'js/[name].[contenthash].js'
+                : 'js/[name].js',
+            chunkFilename: production
+                ? 'js/[name].[contenthash].js'
+                : 'js/[name].js',
             path: path.resolve(__dirname, 'build'),
         },
         plugins: [
@@ -50,6 +55,7 @@ const config = (env, argv) => {
                             ],
                         },
                         noErrorOnMissing: true,
+                        to: 'img/[name][ext]',
                     },
                 ],
             }),
@@ -57,8 +63,8 @@ const config = (env, argv) => {
             production &&
                 new MiniCssExtractPlugin({
                     filename: production
-                        ? 'main.[contenthash].css'
-                        : 'main.css',
+                        ? 'css/[name].[contenthash].css'
+                        : 'css/[name].css',
                 }),
         ].filter(Boolean),
         devtool: production ? false : 'source-map',
@@ -96,15 +102,10 @@ const config = (env, argv) => {
                 {
                     test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
                     exclude: /node_modules/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name].[ext]',
-                                outputPath: 'fonts/',
-                            },
-                        },
-                    ],
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'assets/[name][ext]',
+                    },
                 },
             ],
         },
@@ -113,4 +114,5 @@ const config = (env, argv) => {
         },
     }
 }
+
 module.exports = config
