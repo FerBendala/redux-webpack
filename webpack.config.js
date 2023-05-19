@@ -12,13 +12,11 @@ const config = (env, argv) => {
 
     return {
         entry: './src/index.js',
+        watch: true,
         output: {
             publicPath: '/',
             filename: 'main.js',
-            path: path.resolve(
-                __dirname,
-                'build'
-            ),
+            path: path.resolve(__dirname, 'build'),
         },
         plugins: [
             new HtmlWebpackPlugin({
@@ -34,16 +32,13 @@ const config = (env, argv) => {
                 ),
             }),
             new webpack.DefinePlugin({
-                BACKEND_URL:
-                    JSON.stringify(backend_url),
+                BACKEND_URL: JSON.stringify(backend_url),
             }),
         ],
+        devtool: 'source-map',
         devServer: {
             static: {
-                directory: path.join(
-                    __dirname,
-                    'build'
-                ),
+                directory: path.join(__dirname, 'build'),
             },
             compress: true,
             port: 3000,
@@ -53,14 +48,12 @@ const config = (env, argv) => {
                 {
                     test: /\.(js|ts)x?$/,
                     exclude: /node_modules/,
-                    use: ['babel-loader'],
+                    enforce: 'pre',
+                    use: ['babel-loader', 'source-map-loader'],
                 },
                 {
                     test: /\.css$/i,
-                    use: [
-                        'style-loader',
-                        'css-loader',
-                    ],
+                    use: ['style-loader', 'css-loader'],
                 },
                 {
                     test: /\.scss$/,

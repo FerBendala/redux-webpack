@@ -1,27 +1,26 @@
-import { useState } from 'react'
 import { useNotes } from './hooks'
-
-import './app.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { sumOne } from './redux/counterReducer'
+import store from './store'
 
 const App = () => {
-    const [counter, setCounter] = useState(0)
-    const [values, setValues] = useState([])
+    const dispatch = useDispatch()
+    const counter = useSelector(state => state.counter)
+    const clicks = counter.clicks
+
     const notes = useNotes(BACKEND_URL)
 
-    const handleClick = () => {
-        setCounter(counter + 1)
-        setValues(values.concat(counter))
-    }
-
     return (
-        <section className="container">
-            hello webpack {counter} clicks
-            <button onClick={handleClick}>
-                press
+        <section className='container'>
+            {/* Clicks reducer */}
+            <button onClick={() => dispatch(sumOne(clicks))}>
+                clicked {counter.clicks} times
             </button>
+
+            {/* Notes hook */}
             <div>
-                {notes.length} notes on server{' '}
-                {BACKEND_URL}
+                <strong>{notes.length} </strong>
+                notes on server {BACKEND_URL}
             </div>
         </section>
     )

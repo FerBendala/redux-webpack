@@ -24,7 +24,7 @@
         "prettier/prettier": ["error"],
         "indent": ["error", 4],
         "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "single"],
+        "quotes": ["error", "semi"],
         "semi": ["error", "never"],
         "eqeqeq": "error",
         "no-trailing-spaces": "error",
