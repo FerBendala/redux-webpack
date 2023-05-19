@@ -5,46 +5,50 @@ import { sumOne } from './redux/counterReducer'
 
 import './scss/index.scss'
 
-const App = () => {
+const ReducerTest = () => {
     const dispatch = useDispatch()
     const counter = useSelector( state => state.counter )
     const clicks = counter.clicks
+    return (
+        <>
+            <h2>REDUCER (clicks are saved in redux state)</h2>
+            <button onClick={() => dispatch( sumOne( clicks ) )}>
+                clicked {counter.clicks} times
+            </button>
+        </>
+    )
+}
 
-    console.log( BACKEND_URL )
+const HookTest = () => {
     const notes = useNotes( BACKEND_URL )
+    return (
+        <>
+            <h2>HOOK (hook getting dev and prod backend urls from .env custom file)</h2>
+            <div>
+                <strong>{notes.length} </strong>
+                notes on server {BACKEND_URL}
+            </div>
+        </>
+    )
+}
 
+const Menu = () => {
+    return (
+        <ul>
+            <li><Link to="/">Testing clicks reducer</Link></li>
+            <li><Link to="notes">Testing database connection</Link></li>
+        </ul>
+    )
+}
+
+const App = () => {
     return (
         <section className='container'>
-            <ul>
-                <li>
-                    <Link to="/">Testing clicks reducer</Link>
-                </li>
-                <li>
-                    <Link to="notes">Testing database connection</Link>
-                </li>
-            </ul>
+            <Menu />
             <Routes>
-                <Route path="/" element={
-                    <>
-                        <h2> REDUCER (clicks are saved in redux state) </h2>
-                        <button onClick={() => dispatch( sumOne( clicks ) )}>
-                            clicked {counter.clicks} times
-                        </button>
-                    </>
-                } />
-                <Route path="notes" element={
-                    <>
-                        <h2> HOOK (hook getting dev and prod backend urls from .env custom file)</h2>
-                        <div>
-                            <strong>{notes.length} </strong>
-                            notes on server {BACKEND_URL}
-                        </div>
-                    </>
-                } />
+                <Route path="/" element={<ReducerTest />} />
+                <Route path="notes" element={<HookTest />} />
             </Routes>
-
-
-
         </section>
     )
 }
