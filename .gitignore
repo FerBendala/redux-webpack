@@ -9,3 +9,4 @@ coverage
 # others
 .DS_Store
 .vscode
+stats.json

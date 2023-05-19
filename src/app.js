@@ -1,7 +1,8 @@
 import { useNotes } from './hooks'
 import { useDispatch, useSelector } from 'react-redux'
 import { sumOne } from './redux/counterReducer'
-import store from './store'
+
+import './scss/index.scss'
 
 const App = () => {
     const dispatch = useDispatch()
