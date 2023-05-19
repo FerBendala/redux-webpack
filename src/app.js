@@ -6,19 +6,19 @@ import './scss/index.scss'
 
 const App = () => {
     const dispatch = useDispatch()
-    const counter = useSelector(state => state.counter)
+    const counter = useSelector( state => state.counter )
     const clicks = counter.clicks
 
-    const notes = useNotes(BACKEND_URL)
+    const notes = useNotes( BACKEND_URL )
 
     return (
         <section className='container'>
-            {/* Clicks reducer */}
-            <button onClick={() => dispatch(sumOne(clicks))}>
+            {/* Clicks -- REDUCER */}
+            <button onClick={() => dispatch( sumOne( clicks ) )}>
                 clicked {counter.clicks} times
             </button>
 
-            {/* Notes hook */}
+            {/* Notes -- HOOK */}
             <div>
                 <strong>{notes.length} </strong>
                 notes on server {BACKEND_URL}

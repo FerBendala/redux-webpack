@@ -1,3 +1,4 @@
 build
 coverage
 *.config.js
+teardown.js

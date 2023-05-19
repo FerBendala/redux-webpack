@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './redux/counterReducer'
 
-const store = configureStore({
+const store = configureStore( {
     reducer: {
         counter: counterReducer,
     },
-})
+} )
 
-console.log('initial store:', store.getState())
+console.log( 'initial store:', store.getState() )
 
 export default store

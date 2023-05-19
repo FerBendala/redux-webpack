@@ -7,9 +7,9 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 
-const App = lazy(() => import('./app'))
+const App = lazy( () => import( './app' ) )
 
-createRoot(document.getElementById('root')).render(
+createRoot( document.getElementById( 'root' ) ).render(
     <StrictMode>
         <Provider store={store}>
             <App />

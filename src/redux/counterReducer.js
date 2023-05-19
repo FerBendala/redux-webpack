@@ -1,24 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const counterReducer = createSlice({
+// Reducer
+const counterSlice = createSlice( {
     name: 'counter',
     initialState: {
         clicks: 0,
     },
     reducers: {
-        clicked(state, action) {
-            return action.payload
+        clicked( state, action ) {
+            state.clicks = action.payload.clicks
         },
     },
-})
+} )
 
-export const { clicked } = counterReducer.actions
+export const { clicked } = counterSlice.actions
 
-export const sumOne = numberToSum => {
-    return async dispatch => {
-        const returnedValue = numberToSum + 1
-        dispatch(clicked({ clicks: returnedValue }))
-    }
+// Thunks
+export const sumOne = numberToSum => dispatch => {
+    const returnedValue = numberToSum + 1
+    dispatch( clicked(
+        { clicks: returnedValue }
+    ) )
 }
 
-export default counterReducer.reducer
+export default counterSlice.reducer

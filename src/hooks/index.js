@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react'
 import service from '../services'
 
 export const useNotes = url => {
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState( [] )
 
-    useEffect(() => {
+    useEffect( () => {
         service
-            .getAll(url)
-            .then(notes => setNotes(notes))
-    }, [url])
+            .getAll( url )
+            .then( notes =>
+                setNotes( notes )
+            )
+    }, [url] )
 
     return notes
 }
