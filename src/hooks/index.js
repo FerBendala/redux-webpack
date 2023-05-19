@@ -6,7 +6,7 @@ export const useNotes = url => {
 
     useEffect( () => {
         service
-            .getAll( url )
+            .get( url )
             .then( notes =>
                 setNotes( notes )
             )

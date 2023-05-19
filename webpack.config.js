@@ -1,12 +1,12 @@
-require('dotenv').config()
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+require( 'dotenv' ).config()
+const path = require( 'path' )
+const webpack = require( 'webpack' )
+const HtmlWebpackPlugin = require( 'html-webpack-plugin' )
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
+const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' )
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
 
-const config = (env, argv) => {
+const config = ( env, argv ) => {
     const production = argv.mode === 'production'
     const backend_url = production
         ? process.env.BACKEND_URL_PROD
@@ -24,10 +24,10 @@ const config = (env, argv) => {
             chunkFilename: production
                 ? 'js/[name].[contenthash].js'
                 : 'js/[name].js',
-            path: path.resolve(__dirname, 'build'),
+            path: path.resolve( __dirname, 'build' ),
         },
         plugins: [
-            new HtmlWebpackPlugin({
+            new HtmlWebpackPlugin( {
                 template: path.join(
                     __dirname,
                     'public',
@@ -39,11 +39,11 @@ const config = (env, argv) => {
                     'favicon.png'
                 ),
                 minify: production,
-            }),
-            new webpack.DefinePlugin({
-                BACKEND_URL: JSON.stringify(backend_url),
-            }),
-            new CopyWebpackPlugin({
+            } ),
+            new webpack.DefinePlugin( {
+                BACKEND_URL: JSON.stringify( backend_url ),
+            } ),
+            new CopyWebpackPlugin( {
                 patterns: [
                     {
                         from: './src/assets',
@@ -58,22 +58,23 @@ const config = (env, argv) => {
                         to: 'img/[name][ext]',
                     },
                 ],
-            }),
+            } ),
             production && new CleanWebpackPlugin(),
             production &&
-                new MiniCssExtractPlugin({
-                    filename: production
-                        ? 'css/[name].[contenthash].css'
-                        : 'css/[name].css',
-                }),
-        ].filter(Boolean),
+            new MiniCssExtractPlugin( {
+                filename: production
+                    ? 'css/[name].[contenthash].css'
+                    : 'css/[name].css',
+            } ),
+        ].filter( Boolean ),
         devtool: production ? false : 'source-map',
         devServer: {
             static: {
-                directory: path.join(__dirname, 'build'),
+                directory: path.join( __dirname, 'build' ),
             },
             compress: true,
             port: 3000,
+            historyApiFallback: true
         },
         module: {
             rules: [

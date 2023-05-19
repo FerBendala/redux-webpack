@@ -10,8 +10,7 @@
     "test": "jest --verbose --runInBand --coverage --config=jest.config.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "stats:prod": "webpack --mode production --profile --json --config='webpack.config.js' --output-filename='stats.json'",
-    "stats:dev": "webpack --mode develop --profile --json --config='webpack.config.js' --output-filename='stats.json'"
+    "stats": "webpack --mode production --profile --json --config='webpack.config.js' --output-filename='stats.json'"
   },
   "author": "",
   "license": "ISC",
@@ -55,6 +54,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.11.2",
     "redux": "^4.2.0",
     "regenerator-runtime": "^0.13.11"
   },
