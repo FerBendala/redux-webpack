@@ -1,8 +1,14 @@
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+</style>
+
 # Usage
 
 ## Run this project
 
-To run the project, you can use the following commands in the `package.json` file:
+To run the project, you can use the following commands in the <g>`package.json`</g> file:
 
 -   `build`: This script compiles the project using Webpack in production mode.
 -   `start`: This script starts the Webpack development server.
@@ -29,7 +35,6 @@ Replace your_production_backend_url with the actual URL of your production backe
 It is recommended to install ESLint and Prettier extensions in Visual Studio Code and configure the following settings in VS Code's `settings.json`:
 
 ```json
-// ...
 "editor.defaultFormatter": "esbenp.prettier-vscode",
 "editor.formatOnSave": true,
 "editor.formatOnPaste": true,
