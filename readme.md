@@ -31,9 +31,9 @@ It is recommended to install ESLint and Prettier extensions in Visual Studio Cod
 ```json
 // ...
 "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
+"editor.formatOnSave": true,
+"editor.formatOnPaste": true,
+"editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
 },
 "[javascript]": {
