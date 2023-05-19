@@ -1,20 +1,59 @@
 import axios from 'axios'
+let token = null
 
-const handleRequest = async requestPromise => {
+const handleRequest = async request => {
     try {
-        const response = await requestPromise
+        const response = await request
         return response.data
     } catch (error) {
-        console.log('Error:', error)
         throw error
     }
 }
 
-const getAll = async url => {
-    const requestPromise = await axios.get(url)
-    return handleRequest(requestPromise)
+const setToken = newToken => {
+    token = `Bearer ${newToken}`
+}
+
+const get = async url => {
+    const request = await axios.get(url)
+    return handleRequest(request)
+}
+
+const create = async (url, object) => {
+    const config = {
+        headers: { Authorization: token },
+    }
+
+    const request = await axios.post(url, object, config)
+    return handleRequest(request)
+}
+
+const remove = async (url, id) => {
+    const config = {
+        headers: { Authorization: token },
+    }
+
+    const request = await axios.delete(`${url}/${id}`, config)
+    return handleRequest(request)
+}
+
+const update = async (url, id, object) => {
+    const config = {
+        headers: { Authorization: token },
+    }
+
+    const request = await axios.put(
+        `${url}/${id}`,
+        object,
+        config
+    )
+    return handleRequest(request)
 }
 
 export default {
-    getAll,
+    get,
+    create,
+    remove,
+    update,
+    setToken,
 }
