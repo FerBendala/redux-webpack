@@ -4,14 +4,14 @@
 
 To run the project, you can use the following commands in the `package.json` file:
 
--   `build`: This script compiles the project using Webpack in production mode. It runs the command `webpack --mode production`.
--   `start`: This script starts the Webpack development server. It runs the command `webpack serve --mode development`.
--   `server`: This script starts a simulated JSON server using `json-server`. It uses the `db.json` file as the database and runs on port 3001. It runs the command `json-server --watch db.json --port 3001`.
--   `lint`: This script performs static code analysis using ESLint. It checks for errors and violations of the defined style rules in the `.eslintrc.json` configuration file. It runs the command `eslint .`.
--   `lint:fix`: This script attempts to automatically fix errors and violations of the style rules found by ESLint. It runs the command `eslint --fix`.
--   `format`: This script automatically formats the source code files and other files such as CSS, Markdown, and JSON using Prettier. It uses the formatting rules defined in the `.prettierrc` configuration file. It runs the command `prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc`.
--   `stats:prod`: This script generates Webpack build statistics in production mode. It runs the command `webpack --mode production --profile --json --config='webpack.config.js' --output-filename='stats.json'`.
--   `stats:dev`: This script generates Webpack build statistics in development mode. It runs the command `webpack --mode develop --profile --json --config='webpack.config.js' --output-filename='stats.json'`.
+-   `build`: This script compiles the project using Webpack in production mode.
+-   `start`: This script starts the Webpack development server.
+-   `server`: This script starts a simulated JSON server using `json-server`. It uses the `db.json` file as the database and runs on port 3001.
+-   `lint`: This script performs static code analysis using ESLint. It checks for errors and violations of the defined style rules in the `.eslintrc.json` configuration file.
+-   `lint:fix`: This script attempts to automatically fix errors and violations of the style rules found by ESLint.
+-   `format`: This script automatically formats the source code files and other files such as CSS, Markdown, and JSON using Prettier. It uses the formatting rules defined in the `.prettierrc` configuration file.
+-   `stats:prod`: This script generates Webpack build statistics in production mode.
+-   `stats:dev`: This script generates Webpack build statistics in development mode.
 
 ## .env to connect with backend
 
