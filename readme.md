@@ -2,7 +2,7 @@
 
 ## Run this project
 
-To run the project, you can use the following commands in the <b style="color:green">`package.json`</b> file:
+To run the project, you can use the following commands in the `package.json` file:
 
 -   `build`: This script compiles the project using Webpack in production mode.
 -   `start`: This script starts the Webpack development server.
