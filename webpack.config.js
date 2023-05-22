@@ -100,7 +100,7 @@ const config = ( env, argv ) => {
                     ],
                 },
                 {
-                    test: /\.(png|jpe?g|gif|ico)$/i,
+                    test: /\.(svg|png|jpe?g|gif|ico)$/i,
                     exclude: /node_modules/,
                     type: 'asset/resource',
                     generator: {
