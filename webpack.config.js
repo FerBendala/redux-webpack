@@ -101,11 +101,19 @@ const config = ( env, argv ) => {
                     ],
                 },
                 {
-                    test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
+                    test: /\.(png|jpe?g|gif|ico)$/i,
                     exclude: /node_modules/,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'assets/[name][ext]',
+                        filename: 'assets/images/[name][ext]',
+                    },
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    exclude: /node_modules/,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'assets/fonts/[name][ext]',
                     },
                 },
             ],
