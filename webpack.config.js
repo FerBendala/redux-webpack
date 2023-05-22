@@ -55,7 +55,6 @@ const config = ( env, argv ) => {
                             ],
                         },
                         noErrorOnMissing: true,
-                        to: 'img/[name][ext]',
                     },
                 ],
             } ),
